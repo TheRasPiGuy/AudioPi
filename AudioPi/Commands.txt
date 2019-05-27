@@ -1,0 +1,13 @@
+sudo apt install python3 python3-pip samba
+sudo pip3 install RPi.GPIO datetime
+
+sudo nano /etc/samba/smb.conf
+*add following text*
+[Recordings]
+	comment = AudioPi Recordings
+	path = /home/pi/Recordings
+	read only = no
+	browsable = yes
+sudo service smbd restart
+sudo smbpasswd -a pi
+*add password*
