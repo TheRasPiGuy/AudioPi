@@ -25,27 +25,21 @@ def ledrecording():
 	while True:
 		global recording
 		if recording:
-			setled((29, 31, 33), (gpio.HIGH, gpio.LOW, gpio.HIGH))
+			setled((29, 31, 33), (gpio.LOW, gpio.HIGH, gpio.LOW))
 			time.sleep(0.125)
-			setled((29, 31, 33), (gpio.LOW, gpio.LOW, gpio.LOW))
+			setled((29, 31, 33), (gpio.HIGH, gpio.HIGH, gpio.HIGH))
 			time.sleep(1.5)
 
 def ledidle():
 	while True:
 		global recording
 		if not recording:
-			setled((29, 31, 33), (gpio.LOW, gpio.LOW, gpio.HIGH))
+			setled((29, 31, 33), (gpio.HIGH, gpio.HIGH, gpio.LOW))
 			time.sleep(0.8)
-			setled((29, 31, 33), (gpio.LOW, gpio.LOW, gpio.LOW))
+			setled((29, 31, 33), (gpio.HIGH, gpio.HIGH, gpio.HIGH))
 			time.sleep(0.8)
 
 def ledstartup():
-	setled((29, 31, 33), (gpio.HIGH, gpio.LOW, gpio.LOW))
-	time.sleep(0.08)
-	setled((29, 31, 33), (gpio.HIGH, gpio.HIGH, gpio.LOW))
-	time.sleep(0.08)
-	setled((29, 31, 33), (gpio.LOW, gpio.HIGH, gpio.LOW))
-	time.sleep(0.08)
 	setled((29, 31, 33), (gpio.LOW, gpio.HIGH, gpio.HIGH))
 	time.sleep(0.08)
 	setled((29, 31, 33), (gpio.LOW, gpio.LOW, gpio.HIGH))
@@ -75,6 +69,12 @@ def ledstartup():
 	setled((29, 31, 33), (gpio.LOW, gpio.LOW, gpio.HIGH))
 	time.sleep(0.08)
 	setled((29, 31, 33), (gpio.HIGH, gpio.LOW, gpio.HIGH))
+	time.sleep(0.08)
+	setled((29, 31, 33), (gpio.HIGH, gpio.LOW, gpio.LOW))
+	time.sleep(0.08)
+	setled((29, 31, 33), (gpio.HIGH, gpio.HIGH, gpio.LOW))
+	time.sleep(0.08)
+	setled((29, 31, 33), (gpio.LOW, gpio.HIGH, gpio.LOW))
 	time.sleep(0.08)
 
 def BtnCheck(pin):
