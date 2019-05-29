@@ -25,12 +25,19 @@ echo -e "${CYAN}Installing Python modules...${NC}"
 sudo pip3 install RPi.GPIO datetime &>/dev/null
 
 echo -e "${CYAN}Configuring Samba...${NC}"
-wget https://raw.githubusercontent.com/TheRasPiGuy/AudioPi/master/AudioPi/smb.conf &>/dev/null
+wget https://raw.githubusercontent.com/TheRasPiGuy/AudioPi/master/smb.conf &>/dev/null
 sudo cp -f smb.conf /etc/samba/smb.conf &>/dev/null
 sudo service smbd restart &>/dev/null
 
 echo -e "${CYAN}In the following prompts, enter a password for Samba${NC}"
 sudo smbpasswd -a pi
+
+echo -e "${CYAN}Downloading __main__.py...${NC}"
+wget https://raw.githubusercontent.com/TheRasPiGuy/AudioPi/master/__main__.py &>/dev/null
+
+echo -e "${CYAN}Making start script...${NC}"
+echo "sudo python3 __main__.py" >> start.sh
+chmod +x start.sh
 
 echo -e "${CYAN}Cleaning up...${NC}"
 rm smb.conf &>/dev/null
